@@ -10,15 +10,21 @@ Get Started
 
 Installation is easy::
 
+.. code:: bash
+
     $ pip install flask-share
 
 Initialize the extension::
+
+.. code:: python
 
     from flask_share import Share
     ...
     share = Share(app)
 
 Also support for factory pattern::
+
+.. code:: python
 
     from flask_share import Share
     share = Share()
@@ -34,6 +40,8 @@ Example
 
 Here is a simple demo to demonstrate how to create a share component in
 template::
+
+.. code:: html
 
     <!DOCTYPE html>
     <html lang="en">
@@ -69,6 +77,8 @@ Development
 -----------
 
 We welcome all kinds of contributions. You can run test like this::
+
+.. code:: bash
 
     $ python setup.py test
 
