@@ -8,13 +8,13 @@ on `share.js <https://github.com/overtrue/share.js/>`_.
 Get Started
 -----------
 
-Installation is easy::
+Installation is easy:
 
 .. code:: bash
 
     $ pip install flask-share
 
-Initialize the extension::
+Initialize the extension:
 
 .. code:: python
 
@@ -22,7 +22,7 @@ Initialize the extension::
     ...
     share = Share(app)
 
-Also support for factory pattern::
+Also support for factory pattern:
 
 .. code:: python
 
@@ -39,7 +39,7 @@ Example
 -------
 
 Here is a simple demo to demonstrate how to create a share component in
-template::
+template:
 
 .. code:: html
 
@@ -76,7 +76,7 @@ Resources
 Development
 -----------
 
-We welcome all kinds of contributions. You can run test like this::
+We welcome all kinds of contributions. You can run test like this:
 
 .. code:: bash
 
