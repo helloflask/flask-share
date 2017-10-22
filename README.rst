@@ -65,13 +65,13 @@ And here is what you get:
 
 .. figure::  images/demo.png
 
-  Before you ask, the share component is highly customizable.
+  Before you ask, the share component is **highly customizable**.
 
-Resources
+Links
 ---------
 
-* `Documentation <None>`_
-* `PyPI <None>`_
+* `Documentation <https://flask-share.readthedocs.io/en/latest/>`_
+* `PyPI <https://pypi.org/project/Flask-Share/>`_
 
 Development
 -----------
