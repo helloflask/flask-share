@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Make sure to add this line. -->
+    <title>Flask-Share Demo</title>
+    {{ share.load() }}
+</head>
+<body>
+	<div style="max-width: 700px; margin: auto">
+		<h1>Hello, Flask-Share!</h1>
+		<p>Maecenas tincidunt lacus at velit. Phasellus in felis. Praesent id massa id nisl venenatis lacinia. Integer ac neque.
+		Morbi ut odio. Nullam varius. Sed vel enim sit amet nunc viverra dapibus. Nullam varius. In hac habitasse platea dictumst. 
+		Nunc nisl. Curabitur convallis. Pellentesque viverra pede ac diam.</p>
+
+        <p>Proin risus. Curabitur gravida nisi at nibh. Vestibulum sed magna at nunc commodo placerat. Mauris lacinia sapien 
+        quis libero. Aliquam sit amet diam in magna bibendum imperdiet. In eleifend quam a odio. In blandit ultrices enim. 
+        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. 
+        Proin interdum mauris non ligula pellentesque ultrices.</p>
+
+        <p>Phasellus sit amet erat. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan 
+        tellus nisi eu orci. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc nisl. Nulla neque libero, 
+        convallis eget, eleifend luctus, ultricies eu, nibh. Nullam varius. Phasellus id sapien in sapien iaculis congue. 
+        Pellentesque viverra pede ac diam. Morbi quis tortor id nulla ultrices aliquet.</p>
+
+		{{ share.create(title='Share with: ') }}
+	</div>
+</body>
+</html>
+
