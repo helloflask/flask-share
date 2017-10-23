@@ -63,7 +63,7 @@ template:
 
 And here is what you get:
 
-.. figure::  images/demo.png
+.. figure::  https://raw.githubusercontent.com/greyli/flask-share/master/images/demo.png
 
   Before you ask, the share component is **highly customizable**.
 
