@@ -26,54 +26,58 @@ class ShareTestCase(unittest.TestCase):
     def tearDown(self):
         self.context.pop()
 
-    def test_extension_exsit(self):  # need?
-        assert 'share' in current_app.extensions
-
     def test_config(self):
-        assert 'SHARE_SITES' in current_app.config
-        assert 'SHARE_MOBILE_SITES' in current_app.config
-        assert 'SHARE_HIDE_ON_MOBILE' in current_app.config
-        assert current_app.config['SHARE_HIDE_ON_MOBILE'] == False
+        self.assertIn('SHARE_SITES', current_app.config)
+        self.assertIn('SHARE_MOBILE_SITES', current_app.config)
+        self.assertIn('SHARE_HIDE_ON_MOBILE', current_app.config)
+        self.assertIn('SHARE_SERVE_LOCAL', current_app.config)
+        self.assertEqual(current_app.config['SHARE_HIDE_ON_MOBILE'], False)
 
     def test_load(self):
         rv = self.share.load()
-        assert 'https://cdn.bootcss.com' in rv
-        assert 'social-share.min.js' in rv
+        self.assertIn('https://cdn.bootcss.com', rv)
+        self.assertIn('social-share.min.js', rv)
         
         response = self.client.get('/')
         data = response.get_data(as_text=True)
-        assert 'social-share.min.js' in data
+        self.assertIn('social-share.min.js', data)
 
     def test_create(self):
         rv = self.share.create()
-        assert '<div class="social-share' in rv
+        self.assertIn('<div class="social-share', rv)
 
         response = self.client.get('/')
         data = response.get_data(as_text=True)
-        assert '<div class="social-share' in data
+        self.assertIn('<div class="social-share', data)
 
     def test_custom_sites(self):
         current_app.config['SHARE_SITES'] = 'twiter, facebook'
         response = self.client.get('/')
         data = response.get_data(as_text=True)
-        assert 'data-sites="twiter, facebook"' in data
+        self.assertIn('data-sites="twiter, facebook"', data)
 
     def test_custom_mobile_sites(self):
         current_app.config['SHARE_MOBILE_SITES'] = 'twitter'
         response = self.client.get('/', environ_base=self.mobile_agent)
         data = response.get_data(as_text=True)
-        assert 'data-mobile-sites="twitter"' in data
+        self.assertIn('data-mobile-sites="twitter"', data)
 
     def test_hide_on_mobile_config(self):
         current_app.config['SHARE_HIDE_ON_MOBILE'] = True
         response = self.client.get('/')
         data = response.get_data(as_text=True)
-        assert 'social-share.min.js' in data
-        assert '<div class="social-share' in data
+        self.assertIn('social-share.min.js', data)
+        self.assertIn('<div class="social-share', data)
 
     def test_create_on_mobile(self):
         current_app.config['SHARE_HIDE_ON_MOBILE'] = True
         response = self.client.get('/', environ_base=self.mobile_agent)
         data = response.get_data(as_text=True)
-        assert 'social-share.min.js' in data
-        assert '<div class="social-share' not in data
+        self.assertIn('social-share.min.js', data)
+        self.assertNotIn('<div class="social-share', data)
+
+    def test_local_resources(self):
+        current_app.config['SHARE_SERVE_LOCAL'] = True
+
+        response = self.client.get('/share/static/css/share.min.css')
+        self.assertNotEqual(response.status_code, 404)
