@@ -8,7 +8,7 @@
 """
 import re
 
-from flask import current_app, Markup, request
+from flask import current_app, Markup, request, Blueprint, url_for
 
 
 class Share(object):
@@ -18,24 +18,18 @@ class Share(object):
 
     def init_app(self, app):
 
-        if not hasattr(app, 'extensions'):
-            app.extensions = {}
-        app.extensions['share'] = self
-
-        # app.context_processor(self.context_processor)
-        app.context_processor(lambda: {'share': current_app.extensions['share']})
-        # app.add_template_global()
-        # app.jinja_env.globals['csrf_token'] = generate_csrf
+        share = Blueprint('share', __name__, static_folder='static',
+            static_url_path= '/share/static')
+        app.register_blueprint(share)
+        
+        app.jinja_env.globals['share'] = self
 
         # default settings
         app.config.setdefault('SHARE_SITES', 'weibo, wechat, douban, facebook,\
          twitter, google, linkedin, qq, qzone')
         app.config.setdefault('SHARE_MOBILE_SITES', 'weibo, douban, qq, qzone')
         app.config.setdefault('SHARE_HIDE_ON_MOBILE', False)
-
-    @staticmethod
-    def context_processor():
-        return {'share': current_app.extensions['share']}
+        app.config.setdefault('SHARE_SERVE_LOCAL', False)
 
     @staticmethod
     def load(css_url=None, js_url=None):
@@ -44,6 +38,10 @@ class Share(object):
         :param css_url: if set, will be used as css url.
         :param js_url: if set, will be used as js url.
         """
+        if current_app.config['SHARE_SERVE_LOCAL']:
+            css_url = url_for('share.static', filename='css/share.min.css')
+            js_url = url_for('share.static', filename='js/social-share.min.js')
+
         if css_url is None:
             css_url = 'https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css'
         if js_url is None:

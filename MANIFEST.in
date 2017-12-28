@@ -1,1 +1,2 @@
+include static
 include LICENSE.txt *.py
