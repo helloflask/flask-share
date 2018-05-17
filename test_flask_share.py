@@ -1,4 +1,4 @@
-import unittest 
+import unittest
 
 from flask import Flask, render_template_string, current_app
 
@@ -19,7 +19,7 @@ class ShareTestCase(unittest.TestCase):
         def index():
             return render_template_string('{{ share.load() }}\n{{ share.create() }}')
 
-        self.context = app.test_request_context()
+        self.context = app.app_context()
         self.context.push()
         self.client = app.test_client()
 
@@ -37,7 +37,7 @@ class ShareTestCase(unittest.TestCase):
         rv = self.share.load()
         self.assertIn('https://cdn.bootcss.com', rv)
         self.assertIn('social-share.min.js', rv)
-        
+
         response = self.client.get('/')
         data = response.get_data(as_text=True)
         self.assertIn('social-share.min.js', data)

@@ -18,10 +18,14 @@ class Share(object):
 
     def init_app(self, app):
 
-        share = Blueprint('share', __name__, static_folder='static',
-            static_url_path= '/share/static')
-        app.register_blueprint(share)
-        
+        if not hasattr(app, 'extensions'):
+            app.extensions = {}
+        app.extensions['share'] = self
+
+        blueprint = Blueprint('share', __name__, static_folder='static',
+                              static_url_path='/share' + app.static_url_path)
+        app.register_blueprint(blueprint)
+
         app.jinja_env.globals['share'] = self
 
         # default settings
@@ -32,13 +36,14 @@ class Share(object):
         app.config.setdefault('SHARE_SERVE_LOCAL', False)
 
     @staticmethod
-    def load(css_url=None, js_url=None):
-        """Load share.js resource from CDN.
+    def load(css_url=None, js_url=None, serve_local=False):
+        """Load share.js resources.
 
         :param css_url: if set, will be used as css url.
         :param js_url: if set, will be used as js url.
+        :param serve_local: if set to True, the local resource will be used.
         """
-        if current_app.config['SHARE_SERVE_LOCAL']:
+        if serve_local or current_app.config['SHARE_SERVE_LOCAL']:
             css_url = url_for('share.static', filename='css/share.min.css')
             js_url = url_for('share.static', filename='js/social-share.min.js')
 

@@ -9,16 +9,16 @@ from os import path
 from codecs import open
 from setuptools import setup
 
-here = path.abspath(path.dirname(__file__))
+basedir = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(path.join(basedir, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 
 setup(
     name='Flask-Share',
-    version='0.1.0',
+    version='0.1.1',
     url='https://github.com/greyli/flask-share',
     license='MIT',
     author='Grey Li',
@@ -26,7 +26,7 @@ setup(
     description='Create social share component in Jinja2 template based on share.js.',
     long_description=long_description,
     platforms='any',
-    py_modules=['flask_share'],
+    packages=['flask_share'],
     zip_safe=False,
     test_suite='test_flask_share',
     include_package_data=True,
