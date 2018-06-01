@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ca1914ba1df6d02bc16b7a25ef12e87bbe203e62dd104290d9b7f9fdd8107d82"
+            "sha256": "2d45dc52aa51cc3492f0c24afba341f529a03a4d4804a17cd6439e91cee4056d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -194,6 +194,14 @@
             ],
             "index": "pypi",
             "version": "==3.5.0"
+        },
+        "flask-sphinx-themes": {
+            "hashes": [
+                "sha256:bb23d7dd1a8ad9f47315bcb0439373c7feb24bcb0a1f8c52bb075f06489bb285",
+                "sha256:d00ac0c04947b8325e13be862ef604b60b71aae50e79e30b9df3560f3536cb8e"
+            ],
+            "index": "pypi",
+            "version": "==1.0.2"
         },
         "future": {
             "hashes": [

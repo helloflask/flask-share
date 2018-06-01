@@ -69,7 +69,7 @@ language = None
 exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'monokai'
+pygments_style = 'sphinx'
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -84,14 +84,9 @@ html_theme = 'flask_small'
 # documentation.
 #
 html_theme_options = {
-    'github_user': 'greyli',
-    'github_repo': 'flask-share',
-    'description': 'Create social share component in Jinja2 template based on share.js.',
-    'github_banner': True,
-    'show_powered_by': False,
-
-    # required for monokai:
-    'pre_bg': '#292429',
+    # 'github_user': 'greyli',
+    'github_fork': 'greyli/flask-share',
+    # 'description': 'Create social share component in Jinja2 template based on share.js.',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
