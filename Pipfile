@@ -9,6 +9,7 @@ coverage = "*"
 "flake8" = "*"
 tox = "*"
 readme-renderer = "*"
+sphinx = "*"
 
 [packages]
 

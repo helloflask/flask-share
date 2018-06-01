@@ -168,3 +168,5 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
+# Sphinx
+docs/_build/
