@@ -12,7 +12,7 @@ from setuptools import setup
 basedir = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(basedir, 'README.rst'), encoding='utf-8') as f:
+with open(path.join(basedir, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 
@@ -25,6 +25,7 @@ setup(
     author_email='withlihui@gmail.com',
     description='Create social share component in Jinja2 template based on share.js.',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     platforms='any',
     packages=['flask_share'],
     zip_safe=False,
