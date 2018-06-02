@@ -9,14 +9,14 @@ on `share.js <https://github.com/overtrue/share.js/>`_.
 Installation
 ------------
 
-.. code:: bash
+.. code-block:: bash
 
     $ pip install flask-share
 
 Initialize
 ----------
 
-.. code:: python
+.. code-block:: python
 
     from flask_share import Share
     ...
@@ -24,7 +24,7 @@ Initialize
 
 Also support for factory pattern:
 
-.. code:: python
+.. code-block:: python
 
     from flask_share import Share
     share = Share()
@@ -41,7 +41,7 @@ Example
 Here is a simple demo to demonstrate how to create a share component in
 template:
 
-.. code:: html
+.. code-block:: html
 
     <!DOCTYPE html>
     <html lang="en">
