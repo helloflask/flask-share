@@ -1,3 +1,4 @@
+
 Flask-Share
 ===========
 
@@ -94,17 +95,10 @@ This project is licensed under the MIT License (see the
 
 .. _api:
 
-
 API
-===
+---
 
 .. module:: flask_share
-
-This part of the documentation covers all the interfaces of Flask-Share.
-
-
-Share Object
-------------------
 
 .. autoclass:: Share
    :members:
