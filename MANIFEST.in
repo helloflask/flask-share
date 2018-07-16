@@ -1,2 +1,2 @@
 graft flask_share/static
-include test_flask_share.py
+include LICENSE test_flask_share.py
