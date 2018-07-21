@@ -2,6 +2,8 @@
     Flask-Share
     ~~~~~~~~~~~~~~
     Create social share component in Jinja2 template based on share.js.
+
+    :author: Grey Li <withlihui@gmail.com>
     :copyright: (c) 2017 by Grey Li.
     :license: MIT, see LICENSE for more details.
 """
