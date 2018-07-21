@@ -43,7 +43,7 @@ class Share(object):
         :param js_url: if set, will be used as js url.
         :param serve_local: if set to True, the local resource will be used.
         """
-        if serve_local or current_app.config['SHARE_SERVE_LOCAL']:
+        if serve_local or current_app.config['SHARE_SERVE_LOCAL'] or current_app.config['ENV'] == 'development':
             css_url = url_for('share.static', filename='css/share.min.css')
             js_url = url_for('share.static', filename='js/social-share.min.js')
 
