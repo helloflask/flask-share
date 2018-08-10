@@ -90,9 +90,3 @@ class ShareTestCase(unittest.TestCase):
 
         response = self.client.get('/share/static/css/share.min.css')
         self.assertNotEqual(response.status_code, 404)
-
-    def test_local_resources_on_dev(self):
-        current_app.config['ENV'] = 'development'
-
-        response = self.client.get('/share/static/css/share.min.css')
-        self.assertNotEqual(response.status_code, 404)
