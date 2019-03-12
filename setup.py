@@ -36,6 +36,13 @@ setup(
     install_requires=[
         'Flask'
     ],
+    extras_require={
+        'dev': [
+            'coverage',
+            'flake8',
+            'tox',
+        ],
+     },
     keywords='flask extension development',
     classifiers=[
         'Development Status :: 3 - Alpha',
