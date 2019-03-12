@@ -60,7 +60,7 @@ class Share(object):
     def create(title='', sites=None, mobile_sites=None, align='left', addition_class=''):
         """Create a share component.
 
-        :param title: the prompt dispalyed on the left of the share component.
+        :param title: the prompt displayed on the left of the share component.
         :param sites: a string that consist of sites, separate by comma.
                       supported site name: weibo, wechat, douban, facebook, twitter,
                       google, linkedin, qq, qzone.
